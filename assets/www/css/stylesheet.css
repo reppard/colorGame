@@ -2,9 +2,25 @@ body {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 30px;
   text-align: center;
-  background-color: lightblue;
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color:#a7f5b6;
+  background-image:linear-gradient(top, #43b759 0%, #a7f5b6 51%);
+  background-image:-webkit-linear-gradient(top, #43b759 0%, #a7f5b6 51%);
+  background-image:-ms-linear-gradient(top, #43b759 0%, #a7f5b6 51%);
+  background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #43b759),
+        color-stop(0.51, #a7f5b6)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
   color: white;
   padding:0px;
+  margin:0px;
 }
 
 #titleBox {
@@ -12,7 +28,24 @@ body {
   left:0px;
   top:0px;
   width:100%;
-  background-color: red;
+    font-family: "Lucida Console", Monaco, monospace;
+  font-size: 30px;
+  text-align: center;
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color:#318841;
+  background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #9ff8b0),
+        color-stop(0.09, #318841)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    text-transform:uppercase;
 }
 
 #gameBox {
@@ -26,6 +59,7 @@ body {
   height:250px;
   border-radius:15px;
   padding:15px;
+  padding-right:20px;
   padding-bottom:37px;
 }
 
@@ -36,22 +70,16 @@ body {
   float:left;
   height:50%;
   width:45%;
-  border-width:2px;
-  border-style:solid;
-  border-color:black;
 }
 
 #color2{
   position: relative;
   border-radius:15px;
   margin-bottom:15px;
-  margin-left:5px;
+  margin-left:3px;
   float:right;
   height:50%;
   width:45%;
-  border-width:2px;
-  border-style:solid;
-  border-color:black;
 }
 
 #color3{
@@ -61,22 +89,16 @@ body {
   float:left;
   height:50%;
   width:45%;
-  border-width:2px;
-  border-style:solid;
-  border-color:black;
 }
 
 #color4{
   position: relative;
   margin-bottom:15px;
   border-radius:15px;
-  margin-left:5px;
+  margin-left:3px;
   float:right;
   height:50%;
   width:45%;
-  border-width:2px;
-  border-style:solid;
-  border-color:black;
 }
 
 #goal{

@@ -11,6 +11,18 @@
     'grey' ];
     
   var goal;
+  var clip = null;
+  var tryAgain = null;
+    
+  function playAudio(src){
+	clip = new Media(src, onSuccess);
+	clip.play();
+  }  
+  
+  function onSuccess(){
+  	setTimeOut(function(){ clip.release(); }, 500);
+  }
+  
   var getColors = function(colors){
     var fourColors = [];
     while(fourColors.length != 4 ){
@@ -32,16 +44,12 @@
       document.getElementById('color' + num).className= set[i];
     }
     goal = set[Math.floor(Math.random()*set.length)];
-    //var sound = new Media("/assets/wwww/sounds/clickthe.mp3");
-    //document.getElementById('clickThe').innerHTML="<audio autoplay><source src='file:///android_asset/www/sounds/clickthe.mp3' type='audio/mpeg'></audio>"
-    setTimeout(function () { sayColor(goal); },500);
+    document.addEventListener("deviceready", onDeviceReady, true);
+    function onDeviceReady(){
+    	playAudio("/android_asset/www/sounds/clickthe.mp3");
+        setTimeout(function () { playAudio("/android_asset/www/sounds/" + goal + ".mp3"); },500);
+    }
     document.getElementById('goal').innerHTML="Click the " + goal + " box."
-  };
-
-
-  var sayColor = function(goal){
-    //var color = new Media("/assets/www/sounds/" + goal + ".mp3");
-    //document.getElementById('soundBox').innerHTML="<audio autoplay><source src='sounds/" + goal + ".mp3' type='audio/mpeg'></audio>"
   };
 
   var checkAnswer = function(boxColor){
@@ -50,7 +58,9 @@
       placeColors();
     }else{
       document.getElementById('message').innerHTML="Try Again!";
-      sayColor("tryagain");
+      tryAgain = new Media("/android_asset/www/sounds/tryagain.mp3");
+      tryAgain.play();
+      tryAgain.release();
     }
   }
 
