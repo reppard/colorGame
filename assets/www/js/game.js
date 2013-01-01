@@ -13,14 +13,30 @@
   var goal;
   var clip = null;
   var tryAgain = null;
-    
-  function playAudio(src){
-	clip = new Media(src, onSuccess);
+  var colorSrc = null;
+  
+  function playAudio(src){  
+  	if(clip !== null){
+  		clip.release();
+  	}
+	clip = new Media(src, playColor, onError);
 	clip.play();
   }  
   
+  function playColor(){
+  	if (colorSrc !== null){
+  	  clip = new Media(colorSrc, onSuccess, onError);
+  	  clip.play();
+  	}
+  }
+  
   function onSuccess(){
-  	setTimeOut(function(){ clip.release(); }, 500);
+  	clip.release();
+  	colorSrc = null;
+  }
+
+  function onError(){
+  	navigator.notification.alert("OH SHIT!");
   }
   
   var getColors = function(colors){
@@ -44,10 +60,10 @@
       document.getElementById('color' + num).className= set[i];
     }
     goal = set[Math.floor(Math.random()*set.length)];
-    document.addEventListener("deviceready", onDeviceReady, true);
+    document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady(){
     	playAudio("/android_asset/www/sounds/clickthe.mp3");
-        setTimeout(function () { playAudio("/android_asset/www/sounds/" + goal + ".mp3"); },500);
+        colorSrc = "/android_asset/www/sounds/" + goal + ".mp3"
     }
     document.getElementById('goal').innerHTML="Click the " + goal + " box."
   };
@@ -60,7 +76,6 @@
       document.getElementById('message').innerHTML="Try Again!";
       tryAgain = new Media("/android_asset/www/sounds/tryagain.mp3");
       tryAgain.play();
-      tryAgain.release();
     }
   }
 
