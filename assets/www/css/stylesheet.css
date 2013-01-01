@@ -1,3 +1,15 @@
+.shine {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0.2))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* Chrome10+,Safari5.1+ */
+    height: 55%;
+    width: 100%;
+    box-shadow: inset 0px 2px 1px rgba(255, 255, 255, 0.7);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 100px 40px;
+    border-bottom-left-radius: 100px 40px;
+}
+
 body {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 30px;
@@ -5,16 +17,16 @@ body {
   -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
   -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-  background-color:#a7f5b6;
-  background-image:linear-gradient(top, #43b759 0%, #a7f5b6 51%);
-  background-image:-webkit-linear-gradient(top, #43b759 0%, #a7f5b6 51%);
-  background-image:-ms-linear-gradient(top, #43b759 0%, #a7f5b6 51%);
+  background-color:#001024;
+  background-image:linear-gradient(top, #001024 0%, #013980 51%);
+  background-image:-webkit-linear-gradient(top, #001024 0%, #013980 51%);
+  background-image:-ms-linear-gradient(top, #001024 0%, #013980 51%);
   background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, #43b759),
-        color-stop(0.51, #a7f5b6)
+        color-stop(0, #001024),
+        color-stop(0.51, #013980)
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
@@ -39,8 +51,8 @@ body {
         linear,
         left top,
         left bottom,
-        color-stop(0, #9ff8b0),
-        color-stop(0.09, #318841)
+        color-stop(0, #013980),
+        color-stop(0.09, #00132c)
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
@@ -64,6 +76,7 @@ body {
 }
 
 #color1{
+-webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 1.5);
   position: relative;
   border-radius:15px;
   margin-bottom:15px;
@@ -73,6 +86,7 @@ body {
 }
 
 #color2{
+-webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 1.5);
   position: relative;
   border-radius:15px;
   margin-bottom:15px;
@@ -83,6 +97,7 @@ body {
 }
 
 #color3{
+-webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 1.5);
   position: relative;
   margin-bottom:15px;
   border-radius:15px;
@@ -92,6 +107,7 @@ body {
 }
 
 #color4{
+-webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 1.5);
   position: relative;
   margin-bottom:15px;
   border-radius:15px;
