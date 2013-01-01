@@ -36,7 +36,7 @@
   }
 
   function onError(){
-  	navigator.notification.alert("OH SHIT!");
+  	navigator.notification.alert("OH NO!");
   }
   
   var getColors = function(colors){
@@ -74,8 +74,8 @@
       placeColors();
     }else{
       document.getElementById('message').innerHTML="Try Again!";
-      tryAgain = new Media("/android_asset/www/sounds/tryagain.mp3");
-      tryAgain.play();
+      colorSrc = "/android_asset/www/sounds/tryagain.mp3";
+      playColor(colorSrc);
     }
   }
 
