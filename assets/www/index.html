@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <script type="text/javascript" src="cordova-2.2.0.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("deviceready", loadMedia, false)
+  </script>
   <title>The Color Game</title>
   <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
   <body>
@@ -7,22 +12,20 @@
       The Color Game
     </div>
     <div id="gameBox">
-      <color ID="color1">
+      <color id="color1">
         <div class="shine"></div>
       </color>
-      <color ID="color2">
+      <color id="color2">
         <div class="shine"></div>
       </color>
-      <color ID="color3">
+      <color id="color3">
         <div class="shine"></div>
       </color>
-      <color ID="color4">
+      <color id="color4">
         <div class="shine"></div>
       </color>
     </div>
     <div id="goal"></div>
     <div id="message"></div>
-    <script type="text/javascript" src="cordova-2.2.0.js"></script>
-    <script type="text/javascript" src="js/game.js"></script>
   </body>
 </html>

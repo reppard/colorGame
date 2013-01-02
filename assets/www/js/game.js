@@ -12,33 +12,35 @@
 
   var goal;
   var clip = null;
+  var colorClip = null;
   var tryAgain = null;
   var colorSrc = null;
+
+  function loadMedia(){
+    clip = new Media("", playColor);
+    colorClip = new Media("", onSuccess);
+  }
 
   function vibrate(){
     navigator.notification.vibrate(50);
   }
 
   function playAudio(src){
-  	if(clip !== null){
-  		clip.release();
-  	}
-	clip = new Media(src, playColor, onError);
-	clip.play();
+	  clip["src"] = src;
+	  clip.play();
   }
 
   function playColor(){
-  	if (colorSrc !== null){
-  	  clip = new Media(colorSrc, onSuccess, onError);
-  	  clip.play();
+  	if (colorSrc != null){
+  	  colorClip["src"] = colorSrc;
+      colorClip.stop();
+  	  colorClip.play();
   	}
   }
 
   function onSuccess(){
-  	clip.release();
-  	colorSrc = null;
+    colorClip.release();
   }
-
   function onError(){
   	navigator.notification.alert("OH NO!");
   }
@@ -66,8 +68,8 @@
     goal = set[Math.floor(Math.random()*set.length)];
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady(){
-    	playAudio("/android_asset/www/sounds/clickthe.mp3");
-        colorSrc = "/android_asset/www/sounds/" + goal + ".mp3"
+    	playAudio("\/android_asset\/www\/sounds\/clickthe.mp3");
+        colorSrc = "\/android_asset\/www\/sounds\/" + goal + ".mp3"
     }
     document.getElementById('goal').innerHTML="Click the " + goal + " box."
   };
@@ -78,8 +80,8 @@
       placeColors();
     }else{
       document.getElementById('message').innerHTML="Try Again!";
-      colorSrc = "/android_asset/www/sounds/tryagain.mp3";
-      playColor(colorSrc);
+      colorSrc = "\/android_asset\/www\/sounds\/tryagain.mp3";
+      playColor();
     }
   }
 
