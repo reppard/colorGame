@@ -9,27 +9,31 @@
     'pink',
     'orange',
     'grey' ];
-    
+
   var goal;
   var clip = null;
   var tryAgain = null;
   var colorSrc = null;
-  
-  function playAudio(src){  
+
+  function vibrate(){
+    navigator.notification.vibrate(50);
+  }
+
+  function playAudio(src){
   	if(clip !== null){
   		clip.release();
   	}
 	clip = new Media(src, playColor, onError);
 	clip.play();
-  }  
-  
+  }
+
   function playColor(){
   	if (colorSrc !== null){
   	  clip = new Media(colorSrc, onSuccess, onError);
   	  clip.play();
   	}
   }
-  
+
   function onSuccess(){
   	clip.release();
   	colorSrc = null;
@@ -38,7 +42,7 @@
   function onError(){
   	navigator.notification.alert("OH NO!");
   }
-  
+
   var getColors = function(colors){
     var fourColors = [];
     while(fourColors.length != 4 ){
@@ -85,6 +89,7 @@ window.onload = function(){
   for(var i = 0; i < clickBoxes.length; i++){
     var box = clickBoxes[i];
     box.onclick = function(){
+      vibrate();
       checkAnswer(this.className);
     }
   }
