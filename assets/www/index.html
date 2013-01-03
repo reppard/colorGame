@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <script type="text/javascript" src="cordova-2.2.0.js"></script>
-  <script type="text/javascript" src="js/game.js"></script>
-  <script type="text/javascript">
-    document.addEventListener("deviceready", loadMedia, false)
-  </script>
   <title>The Color Game</title>
   <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
-  <body>
+  <body onload="init();">
     <div id="titleBox">
       The Color Game
     </div>
@@ -28,4 +23,9 @@
     <div id="goal"></div>
     <div id="message"></div>
   </body>
+  <script type="text/javascript" src="cordova-2.2.0.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript">
+    window.onload = init;
+  </script>
 </html>

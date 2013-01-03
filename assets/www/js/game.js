@@ -11,10 +11,24 @@
     'grey' ];
 
   var goal;
-  var clip = null;
-  var colorClip = null;
-  var tryAgain = null;
-  var colorSrc = null;
+  var clip;
+  var colorClip;
+  var tryAgain;
+  var colorSrc;
+  var clickBoxes;
+  
+  function init(){
+    document.addEventListener("deviceready", loadMedia, false);
+    placeColors();
+    clickBoxes = document.getElementsByTagName('color');
+    for(var i = 0; i < clickBoxes.length; i++){
+      var box = clickBoxes[i];
+      box.onclick = function(){
+      vibrate();
+      checkAnswer(this.className);
+      }
+    }
+  }
 
   function loadMedia(){
     clip = new Media("", playColor);
@@ -85,14 +99,4 @@
     }
   }
 
-window.onload = function(){
-  placeColors();
-  var clickBoxes = document.getElementsByTagName('color');
-  for(var i = 0; i < clickBoxes.length; i++){
-    var box = clickBoxes[i];
-    box.onclick = function(){
-      vibrate();
-      checkAnswer(this.className);
-    }
-  }
-};
+
